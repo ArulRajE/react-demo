@@ -1,5 +1,16 @@
 import React from 'react'
 
+function FragmentDemo() {
+
+    return (<React.Fragment>
+        <Method1 />
+        <Method2 />
+        <Method3 />
+        <Method4 />
+    </React.Fragment>
+    )
+}
+
 function Method1() {
 
     return (
@@ -14,7 +25,7 @@ function Method2() {
 
     return (
         // short form of React Fragment
-        <> 
+        <>
             <h1>React Fragment</h1>
             <p>this describes the React Fragment</p>
         </>
@@ -63,17 +74,6 @@ function Method4() {
                 </React.Fragment>
             ))
         }</React.Fragment>
-    )
-}
-
-function FragmentDemo() {
-
-    return (<React.Fragment>
-        <Method1 />
-        <Method2 />
-        <Method3 />
-        <Method4 />
-    </React.Fragment>
     )
 }
 

@@ -1,5 +1,17 @@
 import React, { Component } from 'react'
-import './App.css'
+
+class EventBind extends Component {
+    render() {
+        return (
+            <>
+                <Approach1 />
+                <Approach2 />
+                <Approach3 />
+                <Approach4 />
+            </>
+        )
+    }
+}
 class Approach1 extends Component {
     constructor(props) {
         super(props)
@@ -9,14 +21,14 @@ class Approach1 extends Component {
         }
     }
 
-    changeText(){
-        this.setState({message:"good bye"})
+    changeText() {
+        this.setState({ message: "good bye" })
     }
     render() {
         return (
             <React.Fragment>
-                <span>{this.state.message}</span><br/>
-                <button type="button" onClick={this.changeText.bind(this)}>Change Text</button><br/> {/* Binding the event in Render, Note: this approach is not recommended  */}
+                <span>{this.state.message}</span><br />
+                <button type="button" onClick={this.changeText.bind(this)}>Change Text</button><br /> {/* Binding the event in Render, Note: this approach is not recommended  */}
             </React.Fragment>
 
         )
@@ -30,16 +42,16 @@ class Approach2 extends Component {
             message: "hello world"
         }
     }
-    
-    changeText(){
-        this.setState({message:"good bye"})
+
+    changeText() {
+        this.setState({ message: "good bye" })
     }
 
     render() {
         return (
             <React.Fragment>
-                <span>{this.state.message}</span><br/>
-                <button type="button" onClick={()=> this.changeText()}>Change Text</button><br/> {/* Event binded in arrow function in the callback, Note: this approach is not recommended by react */}
+                <span>{this.state.message}</span><br />
+                <button type="button" onClick={() => this.changeText()}>Change Text</button><br /> {/* Event bind in arrow function in the callback, Note: this approach is not recommended by react */}
             </React.Fragment>
 
         )
@@ -52,17 +64,17 @@ class Approach3 extends Component {
         this.state = {
             message: "hello world"
         }
-    this.changeText=this.changeText.bind(this) /* Event binded in constructor, Note: this approach recommended by react */
+        this.changeText = this.changeText.bind(this) /* Event bind in constructor, Note: this approach recommended by react */
     }
 
-    changeText(){
-        this.setState({message:"good bye"})
+    changeText() {
+        this.setState({ message: "good bye" })
     }
     render() {
         return (
             <React.Fragment>
-                <span>{this.state.message}</span><br/>
-                <button type="button" onClick={this.changeText}>Change Text</button><br/>
+                <span>{this.state.message}</span><br />
+                <button type="button" onClick={this.changeText}>Change Text</button><br />
             </React.Fragment>
 
         )
@@ -77,29 +89,16 @@ class Approach4 extends Component {
         }
     }
 
-    changeText =()=>{
-        this.setState({message:'good bye'})
+    changeText = () => {
+        this.setState({ message: 'good bye' })
     }
     render() {
         return (
             <React.Fragment>
-                <span>{this.state.message}</span><br/>
-                <button type="button" onClick={this.changeText}>Change Text</button> {/*Event binded  */}
+                <span>{this.state.message}</span><br />
+                <button type="button" onClick={this.changeText}>Change Text</button> {/*Event bind  */}
             </React.Fragment>
 
-        )
-    }
-}
-
-class EventBind extends Component {
-    render() {
-        return (
-            <div className="App">
-               <Approach1/> 
-               <Approach2/> 
-               <Approach3/> 
-               <Approach4/> 
-            </div>
         )
     }
 }
